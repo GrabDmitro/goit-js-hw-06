@@ -8,12 +8,11 @@ const ingredients = [
 ];
 const listRef = document.querySelector("#ingredients");
 
-function createList(list, reciever) {
-  list.forEach((element) => {
-    const fragment = document.createElement("li");
-    fragment.textContent = element;
-    fragment.classList.add("item");
-    reciever.appendChild(fragment);
-  });
-}
-createList(ingredients, listRef);
+const list = ingredients.map((element) => {
+  const fragment = document.createElement("li");
+  fragment.textContent = element;
+  fragment.classList.add("item");
+  return fragment;
+});
+//console.log(list);
+listRef.append(...list);
